@@ -1,0 +1,32 @@
+{
+	"folders": [
+		{
+			"path": "../../../../Expressfile/dynamicRoutesFiles/dynamicRotesFiles"
+		},
+		{
+			"path": "../public"
+		},
+		{
+			"path": "../routes"
+		},
+		{
+			"path": "../util"
+		},
+		{
+			"path": "../views"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../data"
+		},
+		{
+			"path": "../models"
+		},
+		{
+			"path": "../node_modules"
+		}
+	],
+	"settings": {}
+}
