@@ -39,14 +39,24 @@ exports.getIndex = (req, res, next) => {
 };
 
 exports.getCart = (req, res, next) => {
-  Cart.findAll()
-     .then(items=>{
+  // Cart.findAll()
+  req.user
+  .getCart()
+  .then(cart=>{
+    return cart.getProducts().then(products=>{
       res.render('shop/cart', {
         path: '/cart',
         pageTitle: 'Your Cart',
         products: items
-      });
-     }).catch(err=>console.log(err))
+      })
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+  })
+  .catch(err=>{
+    console.log(err)
+  })
 };
 
 exports.postCart = async(req, res, next) => {
@@ -56,7 +66,7 @@ exports.postCart = async(req, res, next) => {
   // });
   // res.redirect('/cart');
  const prodId = req.body.productId;
- console.log('59', prodId)
+ 
  const p=await Product.findByPk(prodId)
  console.log(p.title)
  Cart.createProduct({
